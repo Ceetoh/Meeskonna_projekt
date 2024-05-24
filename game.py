@@ -8,6 +8,8 @@ from settings import Settings
 
 pygame.init()
 
+SW, SH = 800, 800
+
 BLOCK_SIZE = 50
 FONT = pygame.font.Font("font.ttf", BLOCK_SIZE*2)
 
@@ -15,7 +17,7 @@ FONT = pygame.font.Font("font.ttf", BLOCK_SIZE*2)
 
 gm_settings = Settings()
 
-SW, SH = 800, 800
+
 
 
 screen = pygame.display.set_mode([gm_settings.screen_width, gm_settings.screen_height])
@@ -38,6 +40,15 @@ class Snake:
         self.head.x += self.xdir * BLOCK_SIZE
         self.head.y += self.ydir * BLOCK_SIZE
         self.body.remove(self.head)
+        
+class Apple:
+    def __init__(self):
+        self.x = int(random.randint(0, SW)/BLOCK_SIZE) * BLOCK_SIZE
+        self.y = int(random.randint(0, SH)/BLOCK_SIZE) * BLOCK_SIZE
+        self.rect = pygame.Rect(self.x, self.y, BLOCK_SIZE, BLOCK_SIZE)
+        
+    def update(self):
+        pygame.draw.rect(screen, "red", self.rect)
 
 def drawgrid():
     for x in range(0, SW, BLOCK_SIZE):
@@ -48,6 +59,8 @@ def drawgrid():
 drawgrid()
 
 snake = Snake()
+
+apple = Apple()
 
 running = True
 while running:
@@ -75,11 +88,17 @@ while running:
     
     screen.fill('green')
     drawgrid()
+    
+    apple.update()
             
     pygame.draw.rect(screen, "#fc8403", snake.head)
             
     for square in snake.body:
         pygame.draw.rect(screen, "#fc8403", square)
-            
+        
+    if snake.head.x == apple.x and snake.head.y == apple.y:
+        snake.body.append(pygame.Rect(snake.head.x, snake.head.y, BLOCK_SIZE, BLOCK_SIZE))
+        apple = Apple()
+        
     pygame.display.update()
     clock.tick(3)
