@@ -73,6 +73,9 @@ def drawgrid():
             rect = pygame.Rect(x, y, BLOCK_SIZE, BLOCK_SIZE)
             pygame.draw.rect(screen, "#ffffff", rect, 1)
 
+score = FONT.render("1", True, "white")
+score_rect = score.get_rect(center=(SW/2, SH/20))
+
 drawgrid()
 
 snake = Snake()
@@ -107,11 +110,15 @@ while running:
     drawgrid()
     
     apple.update()
+    
+    score = FONT.render(f"{len(snake.body) + 1}", True, "white")
             
     pygame.draw.rect(screen, "#fc8403", snake.head)
             
     for square in snake.body:
         pygame.draw.rect(screen, "#fc8403", square)
+        
+    screen.blit(score, score_rect)
         
     if snake.head.x == apple.x and snake.head.y == apple.y:
         snake.body.append(pygame.Rect(square.x, square.y, BLOCK_SIZE, BLOCK_SIZE))
