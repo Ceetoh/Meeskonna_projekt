@@ -3,9 +3,16 @@
 ## Highlights
 It was supposed to be group project, but i did it alone
 
+## Overview
+![image](https://github.com/Ceetoh/Meeskonna_projekt/assets/150243756/9a156167-bdec-479e-953e-71474e9cbc94)
+
+Overview simple 2d game where you have to collect food.
+
+
 ## How to run
 
 Download Python.
+
 Install Pygame. To install it, type the following text in terminal: pip3 install pygame
 
 ## How to play
@@ -22,7 +29,7 @@ Controls
 
 ⬅️ Move left
 
-## About the author
+## About the author 👀
 
 This project was created by an IT student from Tartu. This was my school project.
 
