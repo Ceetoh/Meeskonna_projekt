@@ -21,13 +21,13 @@ You are a snake and you need to collect food.
 
 Controls
 
-⬇️ Move down
+⬇️ S Move down
 
-⬆️ Move up
+⬆️ W Move up
 
-➡️ Move right
+➡️ D Move right
 
-⬅️ Move left
+⬅️ A Move left
 
 ## About the author 👀
 
