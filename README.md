@@ -1,7 +1,7 @@
 # Snake game
 
 ## Highlights
-It was supposed to be group project, but i did it alone
+Project
 
 ## Overview
 ![image](https://github.com/Ceetoh/Meeskonna_projekt/assets/150243756/9a156167-bdec-479e-953e-71474e9cbc94)
